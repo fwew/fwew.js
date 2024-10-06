@@ -1,12 +1,5 @@
 import type { LanguageCode, Word } from './types';
-/**
- * Search 1 or more words in both directions (Na'vi first)
- * @param {LanguageCode} lang language code
- * @param {string} words words to search
- * @param {RequestInit | undefined} init fetch options (optional)
- * @returns {Promise<Word[][]>}
- */
-declare function search(lang: LanguageCode, words: string, init?: RequestInit): Promise<Word[][]>;
+export { fwew, fwewReverse, fwew1D, fwew1DReverse, fwewSimple, search };
 /**
  * Search 1 or more words Na'vi -> Local
  * @param {string} navi Na'vi words to search
@@ -45,4 +38,11 @@ declare function fwew1DReverse(lang: LanguageCode, local: string, init?: Request
  * @returns {Promise<Word[][]>}
  */
 declare function fwewSimple(navi: string, init?: RequestInit): Promise<Word[][]>;
-export { fwew, fwew1D, fwew1DReverse, fwewReverse, fwewSimple, search };
+/**
+ * Search 1 or more words in both directions (Na'vi first)
+ * @param {LanguageCode} lang language code
+ * @param {string} words words to search
+ * @param {RequestInit | undefined} init fetch options (optional)
+ * @returns {Promise<Word[][]>}
+ */
+declare function search(lang: LanguageCode, words: string, init?: RequestInit): Promise<Word[][]>;

@@ -1,17 +1,22 @@
 import { endpoints } from './constants'
 import { FwewError, FwewNumber } from './types'
 
+export {
+  numberToNavi,
+  naviToNumber
+}
+
 /**
  * Convert a decimal integer in closed range [0,32767] to Na'vi
  * @param num number to convert to Na'vi;
  * @param {RequestInit | undefined} init fetch options (optional)
  * @returns {Promise<FwewNumber | FwewError>}
  */
-export async function numberToNavi(
+async function numberToNavi(
   num: number,
   init?: RequestInit
 ): Promise<FwewNumber | FwewError> {
-  const url = endpoints.number_to_navi_url.replace('{num}', num.toString())
+  const url = endpoints.numbers.num_url.replace('{num}', num.toString())
   const response = await fetch(url, init)
   return (await response.json()) as FwewNumber | FwewError
 }
@@ -22,11 +27,11 @@ export async function numberToNavi(
  * @param {RequestInit | undefined} init fetch options (optional)
  * @returns {Promise<FwewNumber | FwewError>}
  */
-export async function naviToNumber(
+async function naviToNumber(
   word: string,
   init?: RequestInit
 ): Promise<FwewNumber | FwewError> {
-  const url = endpoints.navi_to_number_url.replace('{word}', word)
+  const url = endpoints.numbers.word_url.replace('{word}', word)
   const response = await fetch(url, init)
   return (await response.json()) as FwewNumber | FwewError
 }

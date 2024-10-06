@@ -1,3 +1,4 @@
+export type { AdjectiveMode, Affixes, Dialect, FwewError, FwewNumber, LanguageCode, LenitionTable, NameEnding, NounMode, Version, Word };
 type Affixes = {
     Prefix: string[] | null;
     Infix: string[] | null;
@@ -59,4 +60,3 @@ type Version = {
     FwewVersion: string;
     DictVersion: string;
 };
-export type { AdjectiveMode, Affixes, Dialect, FwewError, FwewNumber, LanguageCode, LenitionTable, NameEnding, NounMode, Version, Word };

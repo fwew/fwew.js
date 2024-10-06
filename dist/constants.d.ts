@@ -1,26 +1,50 @@
-export declare const endpoints: {
-    fwew_url: string;
-    fwew_1d_url: string;
-    fwew_simple_url: string;
-    fwew_reverse_url: string;
-    fwew_1d_reverse_url: string;
-    search_url: string;
-    list_url: string;
-    list_filter_url: string;
-    random_url: string;
-    random_filter_url: string;
-    number_to_navi_url: string;
-    navi_to_number_url: string;
-    lenition_url: string;
-    version_url: string;
-    name_single_url: string;
-    name_full_url: string;
-    name_alu_url: string;
-    homonyms_url: string;
-    oddballs_url: string;
-    multi_ipa_url: string;
-    dict_len_url: string;
-    reef_ipa_url: string;
-    validity_url: string;
-    phonemes_url: string;
+export { endpoints };
+declare const endpoints: {
+    fwew: {
+        nav_url: string;
+        reverse_url: string;
+        flat_url: string;
+        flat_reverse_url: string;
+        simple_url: string;
+        search_url: string;
+    };
+    list: {
+        base_url: string;
+        filter_url: string;
+        filter_digraphs_url: string;
+    };
+    names: {
+        alu_url: string;
+        full_url: string;
+        full_discord_url: string;
+        single_url: string;
+    };
+    numbers: {
+        num_url: string;
+        word_url: string;
+    };
+    other: {
+        dict_len_en_url: string;
+        dict_len_url: string;
+        homonyms_url: string;
+        lenition_url: string;
+        multi_ipa_url: string;
+        multiword_url: string;
+        oddballs_url: string;
+        phonemes_en_url: string;
+        phonemes_url: string;
+        reef_ipa_url: string;
+        validity_en_url: string;
+        validity_url: string;
+        validity_discord_url: string;
+    };
+    random: {
+        base_url: string;
+        filter_url: string;
+        digraphs_url: string;
+        filter_digraphs_url: string;
+    };
+    util: {
+        version_url: string;
+    };
 };
