@@ -1,10 +1,7 @@
 import { endpoints } from './constants'
 import type { Word } from './types'
 
-export {
-  random,
-  random2
-}
+export { random, random2 }
 
 /**
  * Get given number of random words, optionally filtered by args
@@ -28,10 +25,7 @@ async function random(
     const response = await fetch(url.toString(), init)
     return (await response.json()) as Word[]
   }
-  const url = new URL(
-    endpoints.random.base_url
-      .replace('{n}', n.toString())
-  )
+  const url = new URL(endpoints.random.base_url.replace('{n}', n.toString()))
   const response = await fetch(url.toString(), init)
   return (await response.json()) as Word[]
 }
@@ -46,7 +40,7 @@ async function random(
  */
 async function random2(
   n: number,
-  c: "true" | "false" | "maybe",
+  c: 'true' | 'false' | 'maybe',
   args?: string,
   init?: RequestInit
 ): Promise<Word[]> {
@@ -62,9 +56,7 @@ async function random2(
     return (await response.json()) as Word[]
   }
   const url = new URL(
-    endpoints.random.digraphs_url
-      .replace('{n}', n.toString())
-      .replace('{c}', c)
+    endpoints.random.digraphs_url.replace('{n}', n.toString()).replace('{c}', c)
   )
   const response = await fetch(url.toString(), init)
   return (await response.json()) as Word[]

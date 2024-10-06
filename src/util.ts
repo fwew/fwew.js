@@ -1,9 +1,7 @@
 import { endpoints } from './constants'
 import { Version } from './types'
 
-export {
-  version
-}
+export { version }
 
 /**
  * Get the version of fwew-api, fwew-lib, and the dictionary
@@ -14,4 +12,3 @@ async function version(): Promise<Version> {
   const response = await fetch(url)
   return (await response.json()) as Version
 }
-  

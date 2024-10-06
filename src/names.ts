@@ -1,12 +1,7 @@
 import { endpoints } from './constants'
 import type { AdjectiveMode, Dialect, NameEnding, NounMode } from './types'
 
-export {
-  nameAlu,
-  nameFull,
-  nameFullWithLimit,
-  nameSingle
-}
+export { nameAlu, nameFull, nameFullWithLimit, nameSingle }
 
 /**
  * Generate a Na'vi name with alu

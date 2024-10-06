@@ -1,10 +1,7 @@
 import { endpoints } from './constants'
 import { FwewError, FwewNumber } from './types'
 
-export {
-  numberToNavi,
-  naviToNumber
-}
+export { numberToNavi, naviToNumber }
 
 /**
  * Convert a decimal integer in closed range [0,32767] to Na'vi

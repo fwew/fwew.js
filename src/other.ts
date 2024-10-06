@@ -35,7 +35,7 @@ async function dictLenEN(init?: RequestInit): Promise<string> {
  * @returns {Promise<string>}
  */
 async function dictLen(lang: string, init?: RequestInit): Promise<string> {
-  const url = endpoints.other.dict_len_url.replace('{lang}', lang);
+  const url = endpoints.other.dict_len_url.replace('{lang}', lang)
   const response = await fetch(url, init)
   return (await response.json()) as string
 }
@@ -100,7 +100,7 @@ async function oddballs(init?: RequestInit): Promise<Word[][]> {
  * @returns {Promise<string[][][]>}
  */
 async function phonemeFrequencyEN(init?: RequestInit): Promise<string[][][]> {
-  const url = endpoints.other.phonemes_en_url;
+  const url = endpoints.other.phonemes_en_url
   const response = await fetch(url, init)
   return (await response.json()) as Promise<string[][][]>
 }
@@ -111,8 +111,11 @@ async function phonemeFrequencyEN(init?: RequestInit): Promise<string[][][]> {
  * @param {RequestInit | undefined} init fetch options (optional)
  * @returns {Promise<string[][][]>}
  */
-async function phonemeFrequency(lang: string, init?: RequestInit): Promise<string[][][]> {
-  const url = endpoints.other.phonemes_url.replace('{lang}', lang);
+async function phonemeFrequency(
+  lang: string,
+  init?: RequestInit
+): Promise<string[][][]> {
+  const url = endpoints.other.phonemes_url.replace('{lang}', lang)
   const response = await fetch(url, init)
   return (await response.json()) as Promise<string[][][]>
 }
@@ -124,10 +127,7 @@ async function phonemeFrequency(lang: string, init?: RequestInit): Promise<strin
  * @returns {Promise<string[]>}
  */
 async function reefMe(ipa: string, init?: RequestInit): Promise<string[]> {
-  const url = new URL(
-    endpoints.other.reef_ipa_url
-      .replace('{i}', ipa)
-  )
+  const url = new URL(endpoints.other.reef_ipa_url.replace('{i}', ipa))
   const response = await fetch(url.toString(), init)
   return (await response.json()) as string[]
 }
@@ -139,9 +139,25 @@ async function reefMe(ipa: string, init?: RequestInit): Promise<string[]> {
  * @returns {Promise<string>}
  */
 async function validEN(words: string, init?: RequestInit): Promise<string> {
+  const url = new URL(endpoints.other.validity_en_url.replace('{i}', words))
+  const response = await fetch(url.toString(), init)
+  return (await response.json()) as string
+}
+
+/**
+ * Returns whether the given string is valid Na'vi
+ * @param {string} lang
+ * @param {string} words words to search
+ * @param {RequestInit | undefined} init fetch options (optional)
+ * @returns {Promise<string>}
+ */
+async function valid(
+  lang: string,
+  words: string,
+  init?: RequestInit
+): Promise<string> {
   const url = new URL(
-    endpoints.other.validity_en_url
-      .replace('{i}', words)
+    endpoints.other.validity_url.replace('{lang}', lang).replace('{i}', words)
   )
   const response = await fetch(url.toString(), init)
   return (await response.json()) as string
@@ -154,24 +170,11 @@ async function validEN(words: string, init?: RequestInit): Promise<string> {
  * @param {RequestInit | undefined} init fetch options (optional)
  * @returns {Promise<string>}
  */
-async function valid(lang: string, words: string, init?: RequestInit): Promise<string> {
-  const url = new URL(
-    endpoints.other.validity_url
-      .replace('{lang}', lang)
-      .replace('{i}', words)
-  )
-  const response = await fetch(url.toString(), init)
-  return (await response.json()) as string
-}
-
-/**
- * Returns whether the given string is valid Na'vi
- * @param {string} lang
- * @param {string} words words to search
- * @param {RequestInit | undefined} init fetch options (optional)
- * @returns {Promise<string>}
- */
-async function validWithLimit(lang: string, words: string, init?: RequestInit): Promise<string> {
+async function validWithLimit(
+  lang: string,
+  words: string,
+  init?: RequestInit
+): Promise<string> {
   const url = new URL(
     endpoints.other.validity_discord_url
       .replace('{lang}', lang)

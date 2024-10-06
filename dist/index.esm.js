@@ -6,22 +6,22 @@ const endpoints = {
         flat_url: `${API_BASE}/fwew-1d/{nav}`,
         flat_reverse_url: `${API_BASE}/fwew-1d/r/{lang}/{local}`,
         simple_url: `${API_BASE}/fwew-simple/{nav}`,
-        search_url: `${API_BASE}/search/{lang}/{words}`,
+        search_url: `${API_BASE}/search/{lang}/{words}`
     },
     list: {
         base_url: `${API_BASE}/list`,
         filter_url: `${API_BASE}/list/{args}`,
-        filter_digraphs_url: `${API_BASE}/list2/{c}/{args}`,
+        filter_digraphs_url: `${API_BASE}/list2/{c}/{args}`
     },
     names: {
         alu_url: `${API_BASE}/name/alu/{n}/{s}/{nm}/{am}/{dialect}`,
         full_url: `${API_BASE}/name/full/{ending}/{n}/{s1}/{s2}/{s3}/{dialect}`,
         full_discord_url: `${API_BASE}/name/full/d/{ending}/{n}/{s1}/{s2}/{s3}/{dialect}`,
-        single_url: `${API_BASE}/name/single/{n}/{s}/{dialect}`,
+        single_url: `${API_BASE}/name/single/{n}/{s}/{dialect}`
     },
     numbers: {
         num_url: `${API_BASE}/number/r/{num}`,
-        word_url: `${API_BASE}/number/{word}`,
+        word_url: `${API_BASE}/number/{word}`
     },
     other: {
         dict_len_en_url: `${API_BASE}/total-words`,
@@ -36,16 +36,16 @@ const endpoints = {
         reef_ipa_url: `${API_BASE}/reef/{i}`,
         validity_en_url: `${API_BASE}/valid/{i}`,
         validity_url: `${API_BASE}/valid/{lang}/{i}`,
-        validity_discord_url: `${API_BASE}/valid/d/{lang}/{i}`,
+        validity_discord_url: `${API_BASE}/valid/d/{lang}/{i}`
     },
     random: {
         base_url: `${API_BASE}/random/{n}`,
         filter_url: `${API_BASE}/random/{n}/{args}`,
         digraphs_url: `${API_BASE}/random2/{n}/{c}`,
-        filter_digraphs_url: `${API_BASE}/random2/{n}/{c}/{args}`,
+        filter_digraphs_url: `${API_BASE}/random2/{n}/{c}/{args}`
     },
     util: {
-        version_url: `${API_BASE}/version`,
+        version_url: `${API_BASE}/version`
     }
 };
 
@@ -160,7 +160,7 @@ async function list(args, init) {
  */
 async function list2(c, args, init) {
     if (args === undefined)
-        args = "";
+        args = '';
     const url = new URL(endpoints.list.filter_digraphs_url
         .replace('{c}', c)
         .replace('{args}', args)
@@ -371,8 +371,7 @@ async function phonemeFrequency(lang, init) {
  * @returns {Promise<string[]>}
  */
 async function reefMe(ipa, init) {
-    const url = new URL(endpoints.other.reef_ipa_url
-        .replace('{i}', ipa));
+    const url = new URL(endpoints.other.reef_ipa_url.replace('{i}', ipa));
     const response = await fetch(url.toString(), init);
     return (await response.json());
 }
@@ -383,8 +382,7 @@ async function reefMe(ipa, init) {
  * @returns {Promise<string>}
  */
 async function validEN(words, init) {
-    const url = new URL(endpoints.other.validity_en_url
-        .replace('{i}', words));
+    const url = new URL(endpoints.other.validity_en_url.replace('{i}', words));
     const response = await fetch(url.toString(), init);
     return (await response.json());
 }
@@ -396,9 +394,7 @@ async function validEN(words, init) {
  * @returns {Promise<string>}
  */
 async function valid(lang, words, init) {
-    const url = new URL(endpoints.other.validity_url
-        .replace('{lang}', lang)
-        .replace('{i}', words));
+    const url = new URL(endpoints.other.validity_url.replace('{lang}', lang).replace('{i}', words));
     const response = await fetch(url.toString(), init);
     return (await response.json());
 }
@@ -433,8 +429,7 @@ async function random(n, args, init) {
         const response = await fetch(url.toString(), init);
         return (await response.json());
     }
-    const url = new URL(endpoints.random.base_url
-        .replace('{n}', n.toString()));
+    const url = new URL(endpoints.random.base_url.replace('{n}', n.toString()));
     const response = await fetch(url.toString(), init);
     return (await response.json());
 }
@@ -456,9 +451,7 @@ async function random2(n, c, args, init) {
         const response = await fetch(url.toString(), init);
         return (await response.json());
     }
-    const url = new URL(endpoints.random.digraphs_url
-        .replace('{n}', n.toString())
-        .replace('{c}', c));
+    const url = new URL(endpoints.random.digraphs_url.replace('{n}', n.toString()).replace('{c}', c));
     const response = await fetch(url.toString(), init);
     return (await response.json());
 }

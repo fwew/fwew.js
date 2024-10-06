@@ -14,4 +14,4 @@ declare function list(args?: string, init?: RequestInit): Promise<Word[]>;
  * @param {RequestInit | undefined} init fetch options (optional)
  * @returns {Promise<Word[]>}
  */
-declare function list2(c: "true" | "false" | "maybe", args?: string, init?: RequestInit): Promise<Word[]>;
+declare function list2(c: 'true' | 'false' | 'maybe', args?: string, init?: RequestInit): Promise<Word[]>;

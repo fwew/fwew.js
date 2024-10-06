@@ -1,10 +1,7 @@
 import { endpoints } from './constants'
 import type { Word } from './types'
 
-export {
-  list,
-  list2
-}
+export { list, list2 }
 
 /**
  * Get a list of all words or Get a list of words filtered by args
@@ -29,14 +26,18 @@ async function list(args?: string, init?: RequestInit): Promise<Word[]> {
  * @param {RequestInit | undefined} init fetch options (optional)
  * @returns {Promise<Word[]>}
  */
-async function list2(c: "true" | "false" | "maybe", args?: string, init?: RequestInit): Promise<Word[]> {
-  if (args === undefined) args = "";
+async function list2(
+  c: 'true' | 'false' | 'maybe',
+  args?: string,
+  init?: RequestInit
+): Promise<Word[]> {
+  if (args === undefined) args = ''
   const url = new URL(
     endpoints.list.filter_digraphs_url
       .replace('{c}', c)
       .replace('{args}', args)
       .replaceAll('%', '%25')
-  );
+  )
   const response = await fetch(url.toString(), init)
   return (await response.json()) as Word[]
 }

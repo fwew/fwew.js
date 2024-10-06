@@ -16,4 +16,4 @@ declare function random(n: number, args?: string, init?: RequestInit): Promise<W
  * @param {RequestInit | undefined} init fetch options (optional)
  * @returns {Promise<Word[]>}
  */
-declare function random2(n: number, c: "true" | "false" | "maybe", args?: string, init?: RequestInit): Promise<Word[]>;
+declare function random2(n: number, c: 'true' | 'false' | 'maybe', args?: string, init?: RequestInit): Promise<Word[]>;

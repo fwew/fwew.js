@@ -1,14 +1,7 @@
 import { endpoints } from './constants'
 import type { LanguageCode, Word } from './types'
 
-export {
-  fwew,
-  fwewReverse,
-  fwew1D,
-  fwew1DReverse,
-  fwewSimple,
-  search
-}
+export { fwew, fwewReverse, fwew1D, fwew1DReverse, fwewSimple, search }
 
 /**
  * Search 1 or more words Na'vi -> Local
