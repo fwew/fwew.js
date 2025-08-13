@@ -1,4 +1,4 @@
-import type { LenitionTable, Word } from './types';
+import type { LanguageCode, LenitionTable, Word } from './types';
 export { dictLenEN, dictLen, homonyms, lenition, multiIPA, multiWords, oddballs, phonemeFrequencyEN, phonemeFrequency, reefMe, validEN, valid, validWithLimit };
 /**
  * Returns a string saying how long the dict is, in English
@@ -8,11 +8,11 @@ export { dictLenEN, dictLen, homonyms, lenition, multiIPA, multiWords, oddballs,
 declare function dictLenEN(init?: RequestInit): Promise<string>;
 /**
  * Returns a string saying how long the dict is, in English
- * @param {string} lang results/ui language
+ * @param {LanguageCode} lang results/ui language
  * @param {RequestInit | undefined} init fetch options (optional)
  * @returns {Promise<string>}
  */
-declare function dictLen(lang: string, init?: RequestInit): Promise<string>;
+declare function dictLen(lang: LanguageCode, init?: RequestInit): Promise<string>;
 /**
  * Returns all the words with more than one dictionary entry
  * @param {RequestInit | undefined} init fetch options (optional)
@@ -50,11 +50,11 @@ declare function oddballs(init?: RequestInit): Promise<Word[][]>;
 declare function phonemeFrequencyEN(init?: RequestInit): Promise<string[][][]>;
 /**
  * Returns a map of how often every phoneme appears in Na'vi
- * @param {string} lang results/ui language
+ * @param {LanguageCode} lang results/ui language
  * @param {RequestInit | undefined} init fetch options (optional)
  * @returns {Promise<string[][][]>}
  */
-declare function phonemeFrequency(lang: string, init?: RequestInit): Promise<string[][][]>;
+declare function phonemeFrequency(lang: LanguageCode, init?: RequestInit): Promise<string[][][]>;
 /**
  * Returns reef dialect spelling and IPA given interdialect IPA
  * @param {string} ipa IPA of forest words to search
@@ -71,17 +71,17 @@ declare function reefMe(ipa: string, init?: RequestInit): Promise<string[]>;
 declare function validEN(words: string, init?: RequestInit): Promise<string>;
 /**
  * Returns whether the given string is valid Na'vi
- * @param {string} lang
+ * @param {LanguageCode} lang
  * @param {string} words words to search
  * @param {RequestInit | undefined} init fetch options (optional)
  * @returns {Promise<string>}
  */
-declare function valid(lang: string, words: string, init?: RequestInit): Promise<string>;
+declare function valid(lang: LanguageCode, words: string, init?: RequestInit): Promise<string>;
 /**
  * Returns whether the given string is valid Na'vi
- * @param {string} lang
+ * @param {LanguageCode} lang
  * @param {string} words words to search
  * @param {RequestInit | undefined} init fetch options (optional)
  * @returns {Promise<string>}
  */
-declare function validWithLimit(lang: string, words: string, init?: RequestInit): Promise<string>;
+declare function validWithLimit(lang: LanguageCode, words: string, init?: RequestInit): Promise<string>;

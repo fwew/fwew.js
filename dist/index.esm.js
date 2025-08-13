@@ -285,7 +285,7 @@ async function dictLenEN(init) {
 }
 /**
  * Returns a string saying how long the dict is, in English
- * @param {string} lang results/ui language
+ * @param {LanguageCode} lang results/ui language
  * @param {RequestInit | undefined} init fetch options (optional)
  * @returns {Promise<string>}
  */
@@ -355,7 +355,7 @@ async function phonemeFrequencyEN(init) {
 }
 /**
  * Returns a map of how often every phoneme appears in Na'vi
- * @param {string} lang results/ui language
+ * @param {LanguageCode} lang results/ui language
  * @param {RequestInit | undefined} init fetch options (optional)
  * @returns {Promise<string[][][]>}
  */
@@ -388,7 +388,7 @@ async function validEN(words, init) {
 }
 /**
  * Returns whether the given string is valid Na'vi
- * @param {string} lang
+ * @param {LanguageCode} lang
  * @param {string} words words to search
  * @param {RequestInit | undefined} init fetch options (optional)
  * @returns {Promise<string>}
@@ -400,7 +400,7 @@ async function valid(lang, words, init) {
 }
 /**
  * Returns whether the given string is valid Na'vi
- * @param {string} lang
+ * @param {LanguageCode} lang
  * @param {string} words words to search
  * @param {RequestInit | undefined} init fetch options (optional)
  * @returns {Promise<string>}

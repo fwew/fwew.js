@@ -22,6 +22,7 @@ type Word = {
     ET: string;
     FR: string;
     HU: string;
+    IT: string;
     KO: string;
     NL: string;
     PL: string;
@@ -44,7 +45,7 @@ type Dialect = 'interdialect' | 'forest' | 'reef';
 type NounMode = 'something' | 'normal noun' | 'verb-er';
 type AdjectiveMode = 'any' | 'something' | 'none' | 'normal adjective' | 'genitive noun' | 'origin noun' | 'participle verb' | 'active participle verb' | 'passive participle verb';
 type NameEnding = 'random' | "'ite" | "'itan" | "'itu";
-type LanguageCode = 'de' | 'en' | 'es' | 'et' | 'fr' | 'hu' | 'ko' | 'nl' | 'pl' | 'pt' | 'ru' | 'sv' | 'tr' | 'uk';
+type LanguageCode = 'de' | 'en' | 'es' | 'et' | 'fr' | 'hu' | 'it' | 'ko' | 'nl' | 'pl' | 'pt' | 'ru' | 'sv' | 'tr' | 'uk';
 type LenitionTable = {
     kx: string;
     px: string;

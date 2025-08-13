@@ -1,5 +1,5 @@
 import { endpoints } from './constants'
-import type { LenitionTable, Word } from './types'
+import type { LanguageCode, LenitionTable, Word } from './types'
 
 export {
   dictLenEN,
@@ -30,11 +30,11 @@ async function dictLenEN(init?: RequestInit): Promise<string> {
 
 /**
  * Returns a string saying how long the dict is, in English
- * @param {string} lang results/ui language
+ * @param {LanguageCode} lang results/ui language
  * @param {RequestInit | undefined} init fetch options (optional)
  * @returns {Promise<string>}
  */
-async function dictLen(lang: string, init?: RequestInit): Promise<string> {
+async function dictLen(lang: LanguageCode, init?: RequestInit): Promise<string> {
   const url = endpoints.other.dict_len_url.replace('{lang}', lang)
   const response = await fetch(url, init)
   return (await response.json()) as string
@@ -107,12 +107,12 @@ async function phonemeFrequencyEN(init?: RequestInit): Promise<string[][][]> {
 
 /**
  * Returns a map of how often every phoneme appears in Na'vi
- * @param {string} lang results/ui language
+ * @param {LanguageCode} lang results/ui language
  * @param {RequestInit | undefined} init fetch options (optional)
  * @returns {Promise<string[][][]>}
  */
 async function phonemeFrequency(
-  lang: string,
+  lang: LanguageCode,
   init?: RequestInit
 ): Promise<string[][][]> {
   const url = endpoints.other.phonemes_url.replace('{lang}', lang)
@@ -146,13 +146,13 @@ async function validEN(words: string, init?: RequestInit): Promise<string> {
 
 /**
  * Returns whether the given string is valid Na'vi
- * @param {string} lang
+ * @param {LanguageCode} lang
  * @param {string} words words to search
  * @param {RequestInit | undefined} init fetch options (optional)
  * @returns {Promise<string>}
  */
 async function valid(
-  lang: string,
+  lang: LanguageCode,
   words: string,
   init?: RequestInit
 ): Promise<string> {
@@ -165,13 +165,13 @@ async function valid(
 
 /**
  * Returns whether the given string is valid Na'vi
- * @param {string} lang
+ * @param {LanguageCode} lang
  * @param {string} words words to search
  * @param {RequestInit | undefined} init fetch options (optional)
  * @returns {Promise<string>}
  */
 async function validWithLimit(
-  lang: string,
+  lang: LanguageCode,
   words: string,
   init?: RequestInit
 ): Promise<string> {
