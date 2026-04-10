@@ -24,6 +24,7 @@
     /* Transpiling with TypeScript */
     "moduleResolution": "Bundler",
     "module": "ESNext",
+    "rootDir": "./src",
     "outDir": "dist",
     "sourceMap": true,
 
