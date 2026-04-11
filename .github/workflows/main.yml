@@ -18,6 +18,8 @@ jobs:
 
       - name: pnpm-setup
         uses: pnpm/action-setup@v6
+        with:
+          version: 10.33.0
 
       - name: Install Node.js
         uses: actions/setup-node@v6
@@ -46,3 +48,4 @@ jobs:
 
       - name: Check
         run: STATUS=$(git status -s); echo $STATUS; if [ ! "$STATUS" = "" ]; then exit 1; fi
+
